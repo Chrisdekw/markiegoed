@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pastel Button Webpage</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: #f8f6f9;
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100px;
+      height: 100px;
+      border-radius: 20px;
+      border: none;
+      background: #d4e5f3;
+      box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      cursor: pointer;
+    }
+
+    .button:hover {
+      transform: translateY(-5px);
+      box-shadow: 4px 8px 15px rgba(0, 0, 0, 0.15);
+    }
+
+    .icon {
+      font-size: 2rem;
+      color: #6b6b6b;
+    }
+  </style>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div class="container">
+    <button class="button" onclick="alert('Flame clicked!')">
+      <i class="fas fa-fire icon"></i>
+    </button>
+    <button class="button" onclick="alert('Solar Panel clicked!')">
+      <i class="fas fa-solar-panel icon"></i>
+    </button>
+    <button class="button" onclick="alert('Chess clicked!')">
+      <i class="fas fa-chess icon"></i>
+    </button>
+    <button class="button" onclick="alert('Music clicked!')">
+      <i class="fas fa-music icon"></i>
+    </button>
+    <button class="button" onclick="alert('Dumbbell clicked!')">
+      <i class="fas fa-dumbbell icon"></i>
+    </button>
+    <button class="button" onclick="alert('Joint clicked!')">
+      <i class="fas fa-joint icon"></i>
+    </button>
+  </div>
+</body>
+</html>
