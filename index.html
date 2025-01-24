@@ -3,23 +3,35 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pastel Button Webpage</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <title>Markiegoed Home App</title>
+  <link href="https://fonts.googleapis.com/css2?family=Angelface&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Caviar+Dreams&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
-      font-family: 'Inter', sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
+      font-family: 'Caviar Dreams', sans-serif;
       background: #f8f6f9;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin: 20px 0 10px;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      font-family: 'Angelface', cursive;
+      margin: 0 0 20px;
+      color: #6b6b6b;
     }
 
     .container {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 20px;
+      justify-content: center;
+      align-items: center;
     }
 
     .button {
@@ -49,6 +61,8 @@
   </style>
 </head>
 <body>
+  <h1>Markiegoed Home App</h1>
+  <h2>Live Laugh Love</h2>
   <div class="container">
     <button class="button" onclick="window.location.href='gas.html'">
       <img src="gas.png" alt="Flame Icon" class="icon" />
@@ -60,7 +74,7 @@
       <img src="chess.png" alt="Chess Icon" class="icon" />
     </button>
     <button class="button" onclick="alert('Music clicked!')">
-      <img src="music2.png" alt="Music Icon" class="icon" />
+      <img src="music.png" alt="Music Icon" class="icon" />
     </button>
     <button class="button" onclick="alert('Dumbbell clicked!')">
       <img src="dumbbell.png" alt="Dumbbell Icon" class="icon" />
