@@ -18,138 +18,37 @@
     h1 {
       margin-bottom: 20px;
     }
-    #board {
-      display: grid;
-      grid-template-columns: repeat(8, 1fr);
-      grid-template-rows: repeat(8, 1fr);
-      width: 320px;
-      height: 320px;
-      border: 2px solid #333;
+    #poem {
+      display: none;
+      margin-top: 20px;
+      font-size: 1.2rem;
+      text-align: center;
+      line-height: 1.6;
     }
-    .cell {
-      width: 40px;
-      height: 40px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      position: relative;
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 5px;
+      background-color: #4CAF50;
+      color: white;
+      cursor: pointer;
     }
-    .cell:nth-child(odd) {
-      background: #ddd;
-    }
-    .cell:nth-child(even) {
-      background: #444;
-    }
-    .piece {
-      width: 36px;
-      height: 36px;
-      cursor: grab;
+    button:hover {
+      background-color: #45a049;
     }
   </style>
 </head>
 <body>
-  <h1>Chess Puzzle</h1>
-  <div id="board"></div>
+  <h1>Can you beat GM Chris?</h1>
+  <iframe style="width: 400px; height: 560px;" src="https://www.chess.com/daily_puzzle" frameborder="0"></iframe>
+  <button onclick="showPoem()">Click when checkmate</button>
+  <div id="poem">The woods are lovely, dark and deep,<br>But I have promises to keep,<br>And miles to go before I sleep,<br>And miles to go before I sleep.</div>
   <script>
-    const board = document.getElementById('board');
-    const initialPosition = {
-      b8: 'black-king',
-      h8: 'black-knight',
-      a7: 'black-pawn',
-      b7: 'black-pawn',
-      e7: 'black-pawn',
-      h4: 'black-pawn',
-      c5: 'black-queen',
-      h1: 'black-rook',
-      f5: 'white-knight',
-      c1: 'white-knight',
-      a3: 'white-pawn',
-      h3: 'white-pawn',
-      a1: 'white-king',
-      b2: 'white-queen',
-      g2: 'white-rook',
-    };
-    const correctMoves = ['c2', 'xh8', 'xf8'];
-    let currentStep = 0;
-
-    function createBoard() {
-      for (let row = 8; row >= 1; row--) {
-        for (let col = 'a'; col <= 'h'; col = String.fromCharCode(col.charCodeAt(0) + 1)) {
-          const cellId = `${col}${row}`;
-          const cell = document.createElement('div');
-          cell.classList.add('cell');
-          cell.id = cellId;
-
-          if (initialPosition[cellId]) {
-            const piece = document.createElement('img');
-            piece.src = `images/${initialPosition[cellId]}.png`;
-            piece.classList.add('piece');
-            piece.draggable = true;
-            piece.dataset.piece = initialPosition[cellId];
-            piece.dataset.cell = cellId;
-            piece.addEventListener('dragstart', dragStart);
-            piece.addEventListener('dragend', dragEnd);
-            cell.appendChild(piece);
-          }
-
-          cell.addEventListener('dragover', dragOver);
-          cell.addEventListener('drop', drop);
-          board.appendChild(cell);
-        }
-      }
+    function showPoem() {
+      document.getElementById('poem').style.display = 'block';
     }
-
-    function dragStart(e) {
-      e.dataTransfer.setData('text/plain', e.target.dataset.cell);
-    }
-
-    function dragEnd(e) {
-      e.target.style.opacity = '1';
-    }
-
-    function dragOver(e) {
-      e.preventDefault();
-    }
-
-    function drop(e) {
-      e.preventDefault();
-      const draggedFrom = e.dataTransfer.getData('text/plain');
-      const piece = document.querySelector(`[data-cell="${draggedFrom}"]`);
-
-      if (e.target.classList.contains('cell') && e.target.id === correctMoves[currentStep]) {
-        e.target.appendChild(piece);
-        piece.dataset.cell = e.target.id;
-        currentStep++;
-
-        if (currentStep === 1) {
-          // Automatically move black queen to f5 and remove knight
-          const blackQueen = document.querySelector('[data-piece="black-queen"]');
-          const targetCell = document.getElementById('f5');
-          const knight = document.querySelector('[data-cell="f5"]');
-          if (knight) knight.remove();
-          targetCell.appendChild(blackQueen);
-          blackQueen.dataset.cell = 'f5';
-        }
-
-        if (currentStep === 2) {
-          // Automatically move black queen to f8
-          const blackQueen = document.querySelector('[data-piece="black-queen"]');
-          const targetCell = document.getElementById('f8');
-          targetCell.appendChild(blackQueen);
-          blackQueen.dataset.cell = 'f8';
-        }
-
-        if (currentStep === correctMoves.length) {
-          const finalQueen = document.querySelector('[data-cell="f8"]');
-          if (finalQueen) finalQueen.remove();
-          alert('Puzzle solved!');
-        }
-      } else {
-        alert('Try again!');
-      }
-    }
-
-    createBoard();
   </script>
 </body>
 </html>
