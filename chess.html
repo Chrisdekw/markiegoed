@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Can you beat Chris?</title>
+  <title>Chess Puzzle</title>
   <link href="https://fonts.googleapis.com/css2?family=Caviar+Dreams&display=swap" rel="stylesheet">
   <style>
     body {
@@ -11,17 +11,17 @@
       font-family: 'Caviar Dreams', sans-serif;
       background: #f8f6f9;
       display: flex;
-      justify-content: center;
-      align-items: center;
       flex-direction: column;
-      height: 100vh;
+      align-items: center;
+      padding: 20px;
     }
     h1 {
-      margin: 20px;
+      margin-bottom: 20px;
     }
     #board {
       display: grid;
       grid-template-columns: repeat(8, 1fr);
+      grid-template-rows: repeat(8, 1fr);
       width: 320px;
       height: 320px;
       border: 2px solid #333;
@@ -32,16 +32,17 @@
       display: flex;
       justify-content: center;
       align-items: center;
-    }
-    .cell:nth-child(even) {
-      background: #eee;
+      position: relative;
     }
     .cell:nth-child(odd) {
+      background: #ddd;
+    }
+    .cell:nth-child(even) {
       background: #444;
     }
     .piece {
-      width: 30px;
-      height: 30px;
+      width: 36px;
+      height: 36px;
       cursor: grab;
     }
   </style>
@@ -68,7 +69,6 @@
       b2: 'white-queen',
       g2: 'white-rook',
     };
-
     const correctMoves = ['c2', 'xh8', 'xf8'];
     let currentStep = 0;
 
@@ -79,9 +79,10 @@
           const cell = document.createElement('div');
           cell.classList.add('cell');
           cell.id = cellId;
+
           if (initialPosition[cellId]) {
             const piece = document.createElement('img');
-            piece.src = `images/${initialPosition[cellId]}.png`; // Add piece images to `images/` folder
+            piece.src = `images/${initialPosition[cellId]}.png`;
             piece.classList.add('piece');
             piece.draggable = true;
             piece.dataset.piece = initialPosition[cellId];
@@ -90,6 +91,7 @@
             piece.addEventListener('dragend', dragEnd);
             cell.appendChild(piece);
           }
+
           cell.addEventListener('dragover', dragOver);
           cell.addEventListener('drop', drop);
           board.appendChild(cell);
@@ -110,13 +112,36 @@
     }
 
     function drop(e) {
+      e.preventDefault();
       const draggedFrom = e.dataTransfer.getData('text/plain');
       const piece = document.querySelector(`[data-cell="${draggedFrom}"]`);
-      if (e.target.classList.contains('cell') && correctMoves[currentStep] === e.target.id) {
+
+      if (e.target.classList.contains('cell') && e.target.id === correctMoves[currentStep]) {
         e.target.appendChild(piece);
         piece.dataset.cell = e.target.id;
         currentStep++;
+
+        if (currentStep === 1) {
+          // Automatically move black queen to f5 and remove knight
+          const blackQueen = document.querySelector('[data-piece="black-queen"]');
+          const targetCell = document.getElementById('f5');
+          const knight = document.querySelector('[data-cell="f5"]');
+          if (knight) knight.remove();
+          targetCell.appendChild(blackQueen);
+          blackQueen.dataset.cell = 'f5';
+        }
+
+        if (currentStep === 2) {
+          // Automatically move black queen to f8
+          const blackQueen = document.querySelector('[data-piece="black-queen"]');
+          const targetCell = document.getElementById('f8');
+          targetCell.appendChild(blackQueen);
+          blackQueen.dataset.cell = 'f8';
+        }
+
         if (currentStep === correctMoves.length) {
+          const finalQueen = document.querySelector('[data-cell="f8"]');
+          if (finalQueen) finalQueen.remove();
           alert('Puzzle solved!');
         }
       } else {
