@@ -38,6 +38,17 @@
     .title {
       font-size: 1.2rem;
     }
+    .poem {
+      margin-top: 20px;
+      font-size: 1rem;
+      text-align: center;
+      line-height: 1.6;
+      display: none;
+    }
+    .poem p:first-child {
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
   </style>
 </head>
 <body>
@@ -52,17 +63,35 @@
       <span class="title">Joel Beukers - In de auto</span>
     </li>
     <li class="music-item">
-      <button class="play-button" onclick="playAudio('droomland.mp4')">▶️</button>
+      <button class="play-button" onclick="playAudioAndShowPoem('droomland.mp4')">▶️</button>
       <span class="title">Young Mark - Droomdebut</span>
     </li>
   </ul>
   <audio id="audio-player" controls style="display: none;"></audio>
+  <div id="poem" class="poem">
+    <p>Mark droomde groot, een album vol pracht,</p>
+    <p>een meesterwerk weer de hele wereld op wacht.</p>
+    <p>Met akkoorden vol passie en teksten vol pijn,<br>
+    zou zijn muziek zelfs voor een ieder helend kunnen zijn.</p>
+    <p>Maar de tijd verstrijkt en de maanden die gaan,<br>
+    en het album blijft nog slechts in plannen bestaan.</p>
+    <p>Is de droom al vervaagd? Is dit doel al opgeheven?<br>
+    Of zal dit album ooit nog naar het daglicht worden geheven?</p>
+    <p>Want als iemand van ons het kan, met dat doorzettingsvermogen<br>
+    Dan gooi jij muzikaal ongetwijfeld hoge ogen</p>
+  </div>
   <script>
     function playAudio(file) {
       const audioPlayer = document.getElementById('audio-player');
       audioPlayer.src = file;
       audioPlayer.style.display = 'block';
       audioPlayer.play();
+    }
+
+    function playAudioAndShowPoem(file) {
+      playAudio(file);
+      const poem = document.getElementById('poem');
+      poem.style.display = 'block';
     }
   </script>
 </body>
