@@ -36,10 +36,11 @@
 
     .button {
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
       width: 100px;
-      height: 100px;
+      height: 120px;
       border-radius: 20px;
       border: none;
       background: #d4e5f3;
@@ -58,30 +59,46 @@
       height: 50px;
       object-fit: contain;
     }
+
+    .label {
+      margin-top: 5px;
+      font-size: 0.9rem;
+      color: #333;
+    }
   </style>
 </head>
 <body>
   <h1>Markiegoed Home App</h1>
   <h2>Live Laugh Love</h2>
   <div class="container">
-    <button class="button" onclick="window.location.href='gas.html'">
-      <img src="gas.png" alt="Flame Icon" class="icon" />
-    </button>
-    <button class="button" onclick="window.location.href='solar.html'">
-      <img src="solar.png" alt="Solar Panel Icon" class="icon" />
-    </button>
-    <button class="button" onclick="window.location.href='chess.html'">
+    <div class="button" onclick="window.location.href='gas.html'">
+      <img src="gas.png" alt="Gas Icon" class="icon" />
+      <span class="label">Gasproductie</span>
+    </div>
+    <div class="button" onclick="window.location.href='solar.html'">
+      <img src="solar.png" alt="Solar Icon" class="icon" />
+      <span class="label">Datadief</span>
+    </div>
+    <div class="button" onclick="window.location.href='chess.html'">
       <img src="chess.png" alt="Chess Icon" class="icon" />
-    </button>
-    <button class="button" onclick="window.location.href='music.html'">
+      <span class="label">King-pin</span>
+    </div>
+    <div class="button" onclick="window.location.href='music.html'">
       <img src="music2.png" alt="Music Icon" class="icon" />
-    </button>
-    <button class="button" onclick="window.location.href='dumbbell.html'">
+      <span class="label">Mark 3000</span>
+    </div>
+    <div class="button" onclick="window.location.href='dumbbell.html'">
       <img src="dumbbell.png" alt="Dumbbell Icon" class="icon" />
-    </button>
-    <button class="button" onclick="window.location.href='investment.html'">
-      <img src="weed.png" alt="Joint Icon" class="icon" />
-    </button>
+      <span class="label">Lord Buffel</span>
+    </div>
+    <div class="button" onclick="window.location.href='investment.html'">
+      <img src="weed.png" alt="Investment Icon" class="icon" />
+      <span class="label">Mark Buffet</span>
+    </div>
+    <div class="button" onclick="window.location.href='coffee.html'">
+      <img src="coffee.png" alt="Coffee Icon" class="icon" />
+      <span class="label">Kofi</span>
+    </div>
   </div>
 </body>
 </html>
