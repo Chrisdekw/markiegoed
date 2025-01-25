@@ -1,1 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dumbbell Challenge</title>
+  <link href="https://fonts.googleapis.com/css2?family=Caviar+Dreams&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Caviar Dreams', sans-serif;
+      background: #f8f6f9;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+    }
+    .prompt {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 5px;
+      background-color: #4CAF50;
+      color: white;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+    .poem {
+      margin-top: 20px;
+      font-size: 1rem;
+      line-height: 1.6;
+      display: none;
+    }
+    .poem-title {
+      font-weight: bold;
+      font-size: 1.4rem;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="prompt">Kom op! Wees een man. Druk eens 15 keer op.</div>
+  <button onclick="showPoem()">Klaar?</button>
+  <div id="poem" class="poem">
+    <p class="poem-title">Lord Buffel</p>
+    <p>Ja ja, je gaat al richting de dertig en dan bedoel ik niet het aantal kilo’s bankdrukken</p>
+    <p>Voor de biceps van Oom Peter moet jij ondertussen al behoorlijk bukken</p>
+    <p>De kilo’s gaan er harder aan op de buik dan op de stang<br>
+    Want met ieder jaar ouder komt die spijsvertering ietsje later op gang</p>
+    <p>Dus hup Mark, trek er dit jaar even ietsje harder aan<br>
+    en dan bedoel ik niet aan je eigen banaan</p>
+  </div>
+  <script>
+    function showPoem() {
+      const poem = document.getElementById('poem');
+      poem.style.display = 'block';
+    }
+  </script>
+</body>
+</html>
 
