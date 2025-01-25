@@ -32,6 +32,7 @@
       font-size: 1rem;
       text-align: center;
       line-height: 1.6;
+      display: none;
     }
     .poem p:first-child {
       font-weight: bold;
@@ -40,7 +41,7 @@
   </style>
 </head>
 <body>
-  <img src="mark.jpg" alt="Mark Image">
+  <img src="mark.jpg" alt="Mark Image" onclick="showPoem()">
 
   <div id="poem-mark" class="poem">
     <p>Mark, de cave dweller</p>
@@ -59,5 +60,12 @@
     <p>En als de zon opkomt en de nacht is voorbij<br>
     hoopt hij op stukje erkenning, of misschien zelfs wel een schouderklopje erbij</p>
   </div>
+
+  <script>
+    function showPoem() {
+      const poem = document.getElementById('poem-mark');
+      poem.style.display = 'block';
+    }
+  </script>
 </body>
 </html>
