@@ -11,8 +11,9 @@
       font-family: 'Caviar Dreams', sans-serif;
       background: #f8f6f9;
       display: flex;
-      justify-content: center;
+      flex-direction: column;
       align-items: center;
+      justify-content: center;
       height: 100vh;
       gap: 20px;
     }
@@ -26,10 +27,59 @@
     img:hover {
       transform: scale(1.05);
     }
+    .poem {
+      margin-top: 20px;
+      font-size: 1rem;
+      text-align: center;
+      line-height: 1.6;
+      display: none;
+    }
   </style>
 </head>
 <body>
-  <img src="elodie.jpg" alt="Elodie Image" onclick="alert('Elodie clicked!')">
-  <img src="mark.jpg" alt="Mark Image" onclick="alert('Mark clicked!')">
+  <img src="elodie.jpg" alt="Elodie Image" onclick="showPoem('elodie')">
+  <img src="mark.jpg" alt="Mark Image" onclick="showPoem('mark')">
+
+  <div id="poem-elodie" class="poem">
+    <p>Mark, de datadief</p>
+    <p>Dwalend door Amsterdam Noord loopt Mark met zijn BudgetEnergie DNS gateway koord.</p>
+    <p>Zoekend naar een gratis proefkonijn, die zijn ziel wilt verkopen aan Mark’s databrein.</p>
+    <p>Voor elke energieleverancier kost data gewoon harde knaken<br>
+    Maar Budget stuurt gewoon een klein legertje aan gretige snaken</p>
+    <p>Dus met z’n data slurf stond hij koeltjes cijfers te slurpen uit de energiekast van Elodie te Poeltjes</p>
+    <p>De beste Sint hoor je hier dan ook weer niet echt over klagen<br>
+    Zolang deze acties ook zijn eigen energierekening zullen verlagen</p>
+    <p>Maar Mark, voordat je straks dezelfde reputatie hebt als databoef Zuckerberg of Bezos<br>
+    Is het wellicht handig om voortaan een bivakmutsje te trekken over je witte klos</p>
+  </div>
+
+  <div id="poem-mark" class="poem">
+    <p>Mark, de cave dweller</p>
+    <p>Bij binnenkomst in Mark’s mannengrot, is je eerste gevoel nou niet vlot</p>
+    <p>De geur van zweetschoenen vult de lucht,<br>
+    een aroma dat zelfs de meest verstopte neus in vlucht.</p>
+    <p>Het getik van toetsen luidt een monotone zang<br>
+    Het is al elf uur ’s avonds, maar zijn nacht is nog lang</p>
+    <p>Daar zit hij, bleekjes, met zijn blik gefixeerd,<br>
+    op cijfertjes, grafieken, en een energiemarkt die flankeert.</p>
+    <p>Een regressie op de intraday markt om de imbalance cost door de curtailment te bepalen<br>
+    Niemand die er iets van begrijpt, maar Mark probeert er een promotie mee te behalen</p>
+    <p>Paulien alleen in bed, die naar een beetje aandacht smacht<br>
+    Maar Power BI is zijn speeltuin vannacht</p>
+    <p>En als de zon opkomt en de nacht is voorbij,<br>
+    hoopt hij op stukje erkenning, of misschien zelfs wel een schouderklopje erbij.</p>
+  </div>
+
+  <script>
+    function showPoem(type) {
+      const poems = document.querySelectorAll('.poem');
+      poems.forEach(poem => poem.style.display = 'none');
+
+      const poemToShow = document.getElementById(`poem-${type}`);
+      if (poemToShow) {
+        poemToShow.style.display = 'block';
+      }
+    }
+  </script>
 </body>
 </html>
