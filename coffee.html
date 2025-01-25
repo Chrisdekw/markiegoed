@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coffee Break</title>
+  <link href="https://fonts.googleapis.com/css2?family=Caviar+Dreams&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Caviar Dreams', sans-serif;
+      background: #f8f6f9;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+    }
+    img {
+      width: 200px;
+      height: auto;
+      cursor: pointer;
+      border-radius: 10px;
+      transition: transform 0.2s ease;
+    }
+    img:hover {
+      transform: scale(1.05);
+    }
+    .poem {
+      margin-top: 20px;
+      font-size: 1rem;
+      line-height: 1.6;
+      display: none;
+    }
+    .poem p:first-child {
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+  </style>
+</head>
+<body>
+  <img src="marksigaret.jpg" alt="Mark Smoking" onclick="showPoem()">
+
+  <div id="poem" class="poem">
+    <p>Onder de zon, met een sigaret in de hand,</p>
+    <p>Mark droomt weg naar een ver, onbekend land.</p>
+    <p>De rook kringelt omhoog, een dans in de lucht,</p>
+    <p>Zijn gedachten dwalen af, mee met de geurige zucht.</p>
+    <p>Maar tussen dromen en realiteit, daar zit de kracht,</p>
+    <p>Om het heden te omarmen, dag en nacht.</p>
+  </div>
+
+  <script>
+    function showPoem() {
+      const poem = document.getElementById('poem');
+      poem.style.display = 'block';
+    }
+  </script>
+</body>
+</html>
