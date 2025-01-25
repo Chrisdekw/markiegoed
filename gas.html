@@ -3,31 +3,61 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gas Page</title>
+  <title>Mark's Poem</title>
+  <link href="https://fonts.googleapis.com/css2?family=Caviar+Dreams&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
-      font-family: 'Inter', sans-serif;
+      font-family: 'Caviar Dreams', sans-serif;
       background: #f8f6f9;
-      padding: 20px;
-      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      gap: 20px;
     }
     img {
-      max-width: 100%;
-      height: auto;
+      width: 150px;
+      height: 150px;
       border-radius: 10px;
+      cursor: pointer;
+      transition: transform 0.2s ease;
     }
-    .text-container {
+    img:hover {
+      transform: scale(1.05);
+    }
+    .poem {
       margin-top: 20px;
-      font-size: 1.2rem;
+      font-size: 1rem;
+      text-align: center;
       line-height: 1.6;
+    }
+    .poem p:first-child {
+      font-weight: bold;
+      font-size: 1.2rem;
     }
   </style>
 </head>
 <body>
-  <img src="fart.jpg" alt="Gas Image">
-  <div class="text-container">
-    <p>Whose woods these are I think I know. <br>Their house is in the village though; <br>They will not see me stopping here <br>To watch their woods fill up with snow.</p>
+  <img src="mark.jpg" alt="Mark Image">
+
+  <div id="poem-mark" class="poem">
+    <p>Mark, de cave dweller</p>
+    <p>Bij binnenkomst in Mark’s mannengrot<br>
+    is je eerste gevoel nou niet vlot</p>
+    <p>De geur van zweetschoenen vult de lucht<br>
+    een aroma dat zelfs de meest verstopte neus in vlucht</p>
+    <p>Het getik van toetsen luidt een monotone zang<br>
+    Het is al elf uur ’s avonds, maar zijn nacht is nog lang</p>
+    <p>Daar zit hij, bleekjes, met zijn blik gefixeerd<br>
+    op cijfertjes, grafieken, en een energiemarkt die flankeert</p>
+    <p>Een regressie op de intraday markt om de imbalance cost door de curtailment te bepalen<br>
+    Niemand die er iets van begrijpt, maar Mark probeert er een promotie mee te behalen</p>
+    <p>Paulien alleen in bed, die naar een beetje aandacht smacht<br>
+    Maar Power BI is zijn speeltuin vannacht</p>
+    <p>En als de zon opkomt en de nacht is voorbij<br>
+    hoopt hij op stukje erkenning, of misschien zelfs wel een schouderklopje erbij</p>
   </div>
 </body>
 </html>
