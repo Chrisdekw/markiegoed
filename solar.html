@@ -32,6 +32,7 @@
       font-size: 1rem;
       text-align: center;
       line-height: 1.6;
+      display: none;
     }
     .poem p:first-child {
       font-weight: bold;
@@ -40,7 +41,7 @@
   </style>
 </head>
 <body>
-  <img src="elodie.jpg" alt="Elodie Image">
+  <img src="elodie.jpg" alt="Elodie Image" onclick="showPoem()">
 
   <div id="poem-elodie" class="poem">
     <p>Mark, de datadief</p>
@@ -57,5 +58,12 @@
     <p>Maar Mark, voordat je straks dezelfde reputatie hebt als databoef Zuckerberg of Bezos<br>
     Is het wellicht handig om voortaan een bivakmutsje te trekken over je witte klos</p>
   </div>
+
+  <script>
+    function showPoem() {
+      const poem = document.getElementById('poem-elodie');
+      poem.style.display = 'block';
+    }
+  </script>
 </body>
 </html>
