@@ -1,1 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Investment Page</title>
+  <link href="https://fonts.googleapis.com/css2?family=Caviar+Dreams&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Caviar Dreams', sans-serif;
+      background: #f8f6f9;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+    }
+    img {
+      max-width: 300px;
+      margin-bottom: 20px;
+      border-radius: 10px;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 5px;
+      background-color: #4CAF50;
+      color: white;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+    .poem {
+      margin-top: 20px;
+      font-size: 1rem;
+      line-height: 1.6;
+      display: none;
+    }
+    .poem p:first-child {
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+  </style>
+</head>
+<body>
+  <img src="asml.jpg" alt="ASML Image">
+  <button onclick="showPoem()">Click when you bet and lost</button>
+  <div id="poem" class="poem">
+    <p>2024, voor jouw portefeuille geen groot succes,</p>
+    <p>investeren werd een vrij matig proces</p>
+    <p>Meerdere kansen om toch weer in het groen te komen<br>
+    Werden al snel weer verbannen naar jouw dromen</p>
+    <p>Maar Mark, je kunt niet altijd winnen<br>
+    Je moet gewoon even klein beginnen</p>
+  </div>
+  <script>
+    function showPoem() {
+      const poem = document.getElementById('poem');
+      poem.style.display = 'block';
+    }
+  </script>
+</body>
+</html>
 
