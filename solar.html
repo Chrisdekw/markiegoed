@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Solar Panel Page</title>
+  <title>Elodie's Poem</title>
   <link href="https://fonts.googleapis.com/css2?family=Caviar+Dreams&display=swap" rel="stylesheet">
   <style>
     body {
@@ -18,7 +18,7 @@
       gap: 20px;
     }
     img {
-      width: 150px; /* Make the images square */
+      width: 150px;
       height: 150px;
       border-radius: 10px;
       cursor: pointer;
@@ -32,7 +32,6 @@
       font-size: 1rem;
       text-align: center;
       line-height: 1.6;
-      display: none;
     }
     .poem p:first-child {
       font-weight: bold;
@@ -41,8 +40,7 @@
   </style>
 </head>
 <body>
-  <img src="elodie.jpg" alt="Elodie Image" onclick="showPoem('elodie')">
-  <img src="mark.jpg" alt="Mark Image" onclick="showPoem('mark')">
+  <img src="elodie.jpg" alt="Elodie Image">
 
   <div id="poem-elodie" class="poem">
     <p>Mark, de datadief</p>
@@ -59,35 +57,5 @@
     <p>Maar Mark, voordat je straks dezelfde reputatie hebt als databoef Zuckerberg of Bezos<br>
     Is het wellicht handig om voortaan een bivakmutsje te trekken over je witte klos</p>
   </div>
-
-  <div id="poem-mark" class="poem">
-    <p>Mark, de cave dweller</p>
-    <p>Bij binnenkomst in Mark’s mannengrot<br>
-    is je eerste gevoel nou niet vlot</p>
-    <p>De geur van zweetschoenen vult de lucht<br>
-    een aroma dat zelfs de meest verstopte neus in vlucht</p>
-    <p>Het getik van toetsen luidt een monotone zang<br>
-    Het is al elf uur ’s avonds, maar zijn nacht is nog lang</p>
-    <p>Daar zit hij, bleekjes, met zijn blik gefixeerd<br>
-    op cijfertjes, grafieken, en een energiemarkt die flankeert</p>
-    <p>Een regressie op de intraday markt om de imbalance cost door de curtailment te bepalen<br>
-    Niemand die er iets van begrijpt, maar Mark probeert er een promotie mee te behalen</p>
-    <p>Paulien alleen in bed, die naar een beetje aandacht smacht<br>
-    Maar Power BI is zijn speeltuin vannacht</p>
-    <p>En als de zon opkomt en de nacht is voorbij<br>
-    hoopt hij op stukje erkenning, of misschien zelfs wel een schouderklopje erbij</p>
-  </div>
-
-  <script>
-    function showPoem(type) {
-      const poems = document.querySelectorAll('.poem');
-      poems.forEach(poem => poem.style.display = 'none');
-
-      const poemToShow = document.getElementById(`poem-${type}`);
-      if (poemToShow) {
-        poemToShow.style.display = 'block';
-      }
-    }
-  </script>
 </body>
 </html>
